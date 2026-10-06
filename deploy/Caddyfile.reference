@@ -1,0 +1,33 @@
+{
+    auto_https off
+    admin off
+}
+
+http://:61000 {
+    root * /home/zhenjinchao/pipelines
+    encode zstd gzip
+    handle /api/items* {
+        header Cache-Control "no-store"
+        reverse_proxy 127.0.0.1:61587
+    }
+    handle /api/search* {
+        header Cache-Control "no-store"
+        reverse_proxy 127.0.0.1:61587
+    }
+    handle /api/stats* {
+        header Cache-Control "no-store"
+        reverse_proxy 127.0.0.1:61587
+    }
+    handle /api/facets* {
+        header Cache-Control "no-store"
+        reverse_proxy 127.0.0.1:61587
+    }
+    handle /api/community* {
+        header Cache-Control "no-store"
+        reverse_proxy 127.0.0.1:61587
+    }
+    handle {
+        header Cache-Control "no-cache"
+        file_server
+    }
+}

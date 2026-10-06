@@ -1,0 +1,9 @@
+*.bak
+*.bak.*
+*.db
+*.db.bak.*
+__pycache__/
+*.pyc
+*.png
+*.log
+live_index_now.html
